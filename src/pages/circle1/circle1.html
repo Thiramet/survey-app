@@ -1,0 +1,69 @@
+<ion-header no-border>
+
+    <ion-navbar transparent>
+        <ion-title>Station1</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card-title>
+        Observe angle
+    </ion-card-title>
+
+    
+    <ion-item>
+        <ion-label>D</ion-label>
+        <ion-input type="number" [(ngModel)]="d"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>M</ion-label>
+        <ion-input type="number" [(ngModel)]="m"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>S</ion-label>
+        <ion-input type="number" [(ngModel)]="s"></ion-input>
+    </ion-item>
+    <br>
+    <ion-card-title>
+        Azmuths
+    </ion-card-title>
+    <ion-item>
+        <ion-label>D</ion-label>
+        <ion-input type="number" [(ngModel)]="dazm" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>M</ion-label>
+        <ion-input type="number" [(ngModel)]="mazm" ></ion-input>
+    
+    </ion-item>
+    <ion-item>
+        <ion-label>S</ion-label>
+        <ion-input type="number" [(ngModel)]="sazm" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-card-title>
+        Distance
+    </ion-card-title>
+    <ion-item>
+        <ion-label>L</ion-label>
+        <ion-input type="number" [(ngModel)]="l1" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-card-title>
+        Coordinates
+    </ion-card-title>
+    <ion-item>
+        <ion-label>N</ion-label>
+        <ion-input type="number" [(ngModel)]="n" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>E</ion-label>
+        <ion-input type="number" [(ngModel)]="e" ></ion-input>
+    </ion-item>
+    <br>
+
+    <button ion-button (click)="GoCircle2()"  (click)="calDecimal()" >ถัดไป</button>
+
+</ion-content>

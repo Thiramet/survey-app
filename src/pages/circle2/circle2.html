@@ -1,0 +1,39 @@
+
+<ion-header no-border >
+
+    <ion-navbar transparent >
+      <ion-title>Station2</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+    <ion-card-title>
+        Observe angle
+        </ion-card-title>
+    <ion-item>
+        <ion-label>D</ion-label>
+        <ion-input type="number" [(ngModel)]="d" ></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>M</ion-label>
+          <ion-input type="number" [(ngModel)]="m" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>S</ion-label>
+            <ion-input type="number" [(ngModel)]="s"  ></ion-input>
+          </ion-item>
+          <br>
+          <ion-card-title>
+              Distance
+          </ion-card-title>
+          <ion-item>
+              <ion-label>L</ion-label>
+              <ion-input type="number" [(ngModel)]="l2" ></ion-input>
+            </ion-item>
+            <br>
+            <button ion-button (click)="GoCircle3()"  (click)="calDecimal()" >ถัดไป</button>
+
+
+</ion-content>
