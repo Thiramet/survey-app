@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{ Circle9Page }from'../circle9/circle9';
+import { Provider } from '../../providers/provider/provider';
 
 @IonicPage()
 @Component({
@@ -8,23 +9,36 @@ import{ Circle9Page }from'../circle9/circle9';
   templateUrl: 'circle8.html',
 })
 export class Circle8Page {
-  public d: number=0;
-  public m: number=0;
-  public s: number=0;
-  public l8: number=0;
-  public dec8: number=0;
+  public obD: number=0;
+  public obM: number=0;
+  public obS: number=0;
+  public dist: number=0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+     public provider: Provider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Circle8Page');
   }
 
-  calDecimal(){
-    this.dec8 =Number (this.d)+Number(this.m/60)+Number(this.s/60/60);
+  addData(){
+    this.provider.setobD(this.obD);
+    this.provider.setobM(this.obM);
+    this.provider.setobS(this.obS);
+    this.provider.setdist(this.dist);
 
-    console.log(this.dec8);
+  }
+
+  showData(){
+    let obD = this.provider.getobD();
+    let obM = this.provider.getobM();
+    let obS = this.provider.getobS();
+    let dist = this.provider.getdist();
+
+    console.log(obD, obM,obS,dist);
   }
 
   GoCircle9(){

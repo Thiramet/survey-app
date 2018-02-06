@@ -12,18 +12,18 @@
         Observe angle
     </ion-card-title>
 
-    
+
     <ion-item>
         <ion-label>D</ion-label>
-        <ion-input type="number" [(ngModel)]="d"></ion-input>
+        <ion-input type="number" [(ngModel)]="obD"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>M</ion-label>
-        <ion-input type="number" [(ngModel)]="m"></ion-input>
+        <ion-input type="number" [(ngModel)]="obM"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>S</ion-label>
-        <ion-input type="number" [(ngModel)]="s"></ion-input>
+        <ion-input type="number" [(ngModel)]="obS"></ion-input>
     </ion-item>
     <br>
     <ion-card-title>
@@ -31,16 +31,16 @@
     </ion-card-title>
     <ion-item>
         <ion-label>D</ion-label>
-        <ion-input type="number" [(ngModel)]="dazm" ></ion-input>
+        <ion-input type="number" [(ngModel)]="azmD" ></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>M</ion-label>
-        <ion-input type="number" [(ngModel)]="mazm" ></ion-input>
-    
+        <ion-input type="number" [(ngModel)]="azmM" ></ion-input>
+
     </ion-item>
     <ion-item>
         <ion-label>S</ion-label>
-        <ion-input type="number" [(ngModel)]="sazm" ></ion-input>
+        <ion-input type="number" [(ngModel)]="azmS" ></ion-input>
     </ion-item>
     <br>
     <ion-card-title>
@@ -48,7 +48,7 @@
     </ion-card-title>
     <ion-item>
         <ion-label>L</ion-label>
-        <ion-input type="number" [(ngModel)]="l1" ></ion-input>
+        <ion-input type="number" [(ngModel)]="dist"></ion-input>
     </ion-item>
     <br>
     <ion-card-title>
@@ -64,6 +64,6 @@
     </ion-item>
     <br>
 
-    <button ion-button (click)="GoCircle2()"  (click)="calDecimal()" >ถัดไป</button>
+    <button ion-button (click)="addData();showData();GoCircle2()" >ถัดไป</button>
 
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Circle3Page  }from'../circle3/circle3';
-
+import { Provider } from '../../providers/provider/provider';
 
 @IonicPage()
 @Component({
@@ -9,28 +9,46 @@ import { Circle3Page  }from'../circle3/circle3';
   templateUrl: 'circle2.html',
 })
 export class Circle2Page {
-  public d: number=0;
-  public m: number=0;
-  public s: number=0;
-  public l2: number=0;
-  public dec2: number=0;
+  public obD: number=0;
+  public obM: number=0;
+  public obS: number=0;
+  public dist: number=0;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public provider: Provider
+
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Circle2Page')
-  
-  }
-  calDecimal(){
-    this.dec2 =Number (this.d)+Number(this.m/60)+Number(this.s/60/60);
 
-    console.log(this.dec2);
   }
+
+  addData(){
+    this.provider.setobD(this.obD);
+    this.provider.setobM(this.obM);
+    this.provider.setobS(this.obS);
+    this.provider.setdist(this.dist);
+
+  }
+
+  showData(){
+    let obD = this.provider.getobD();
+    let obM = this.provider.getobM();
+    let obS = this.provider.getobS();
+    let dist = this.provider.getdist();
+
+    console.log(obD, obM,obS,dist);
+  }
+
 
   GoCircle3(){
     this.navCtrl.push( Circle3Page );
   }
-  
+
 
 }
