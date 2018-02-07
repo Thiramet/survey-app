@@ -30,19 +30,19 @@ export class Circle1Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Circle1Page');
+    //console.log('ionViewDidLoad Circle1Page');
   }
 
   addData(){
-    this.provider.setobD(this.obD);
-    this.provider.setobM(this.obM);
-    this.provider.setobS(this.obS);
-    this.provider.setazmD(this.azmD);
-    this.provider.setazmM(this.azmM);
-    this.provider.setazmS(this.azmS);
-    this.provider.setdist(this.dist);
-    this.provider.setn(this.n);
-    this.provider.sete(this.e);
+    this.provider.setobD(Number(this.obD));
+    this.provider.setobM(Number(this.obM));
+    this.provider.setobS(Number(this.obS));
+    this.provider.setazmD(Number(this.azmD));
+    this.provider.setazmM(Number(this.azmM));
+    this.provider.setazmS(Number(this.azmS));
+    this.provider.setdist(Number(this.dist));
+    this.provider.setn(Number(this.n));
+    this.provider.sete(Number(this.e));
   }
 
   showData(){
@@ -59,11 +59,6 @@ export class Circle1Page {
     console.log(obD, obM,obS,azmD,azmM,azmS,dist,n,e);
   }
 
-  calDecimal(){
-  //  this.dec1 =Number (this.d)+Number(this.m/60)+Number(this.s/60/60);
-
-  //  console.log(this.dec1);
-  }
 
   GoCircle2(){
     this.navCtrl.push( Circle2Page );

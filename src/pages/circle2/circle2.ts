@@ -13,7 +13,7 @@ export class Circle2Page {
   public obM: number=0;
   public obS: number=0;
   public dist: number=0;
-  
+
 
   constructor(
     public navCtrl: NavController,
@@ -46,8 +46,8 @@ export class Circle2Page {
   }
 
 
-  GoCircle3(){
-    this.navCtrl.push( Circle3Page );
+  goCal(){
+    console.log("คำนวณ");
   }
 
 
