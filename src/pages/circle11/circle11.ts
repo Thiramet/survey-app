@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Provider } from '../../providers/provider/provider';
 
-/**
- * Generated class for the Circle11Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Circle11Page {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public provider: Provider
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Circle11Page');
+  }
+
+  showData(){
+    let obD = this.provider.getobD();
+    let obM = this.provider.getobM();
+    let obS = this.provider.getobS();
+    let azmD = this.provider.getazmD();
+    let azmM = this.provider.getazmM();
+    let azmS = this.provider.getazmS();
+    let dist = this.provider.getdist();
+    let n = this.provider.getn();
+    let e = this.provider.gete();
+
+    console.log(obD, obM,obS,azmD,azmM,azmS,dist,n,e);
   }
 
 }

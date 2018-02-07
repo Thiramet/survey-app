@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Circle3Page  }from'../circle3/circle3';
 import { Provider } from '../../providers/provider/provider';
+import { Circle11Page } from '../circle11/circle11';
 
 @IonicPage()
 @Component({
@@ -13,6 +13,7 @@ export class Circle2Page {
   public obM: number=0;
   public obS: number=0;
   public dist: number=0;
+  swap : boolean;
 
 
   constructor(
@@ -29,10 +30,10 @@ export class Circle2Page {
   }
 
   addData(){
-    this.provider.setobD(this.obD);
-    this.provider.setobM(this.obM);
-    this.provider.setobS(this.obS);
-    this.provider.setdist(this.dist);
+    this.provider.setobD(Number(this.obD));
+    this.provider.setobM(Number(this.obM));
+    this.provider.setobS(Number(this.obS));
+    this.provider.setdist(Number(this.dist));
 
   }
 
@@ -49,6 +50,16 @@ export class Circle2Page {
   goCal(){
     console.log("คำนวณ");
   }
+
+  next() {
+       this.swap = !this.swap;
+   }
+
+gotoCircle11(){
+  this.navCtrl.push( Circle11Page );
+
+}
+
 
 
 }
