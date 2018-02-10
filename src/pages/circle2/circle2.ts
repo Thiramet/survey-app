@@ -51,6 +51,14 @@ export class Circle2Page {
     console.log("คำนวณ");
   }
 
+  clear(){
+    this.obD=0;
+    this.obM=0;
+    this.obS=0;
+    this.dist=0;
+
+  }
+
   next() {
        this.swap = !this.swap;
    }

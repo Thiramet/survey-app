@@ -9,17 +9,17 @@ import { MapPage }from'../map/map';
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
+
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public loadingCtrl: LoadingProvider) {
-        this.loadingCtrl.presentWithGif1(); 
-	setTimeout(() => { 
-	   this.loadingCtrl.dismiss().then(() => {  
-           }); 
-	}, 5000);				 					       
-	}  
-	
+        this.loadingCtrl.presentWithGif1();
+	setTimeout(() => {
+	   this.loadingCtrl.dismiss().then(() => {
+           });
+	}, 3000);				 					       
+	}
+
 	goCircle1(){
     this.navCtrl.push( Circle1Page )
   }
