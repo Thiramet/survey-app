@@ -47,9 +47,7 @@ export class Circle2Page {
   }
 
 
-  goCal(){
-    console.log("คำนวณ");
-  }
+
 
   clear(){
     this.obD=0;

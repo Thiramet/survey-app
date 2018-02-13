@@ -57,6 +57,7 @@ export class Provider {
   setn(value:any){
     this.arr_n.push(value);
   }
+  //get function
   getobD(){
     return this.arr_obD;
   }
