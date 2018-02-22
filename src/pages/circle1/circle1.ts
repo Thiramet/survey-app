@@ -16,7 +16,6 @@ export class Circle1Page {
   public azmD :number=0;
   public azmM :number=0;
   public azmS :number=0;
-  public dist :number=0;
   public n :number=0;
   public e :number=0;
   //public dec1: number=0;
@@ -40,7 +39,6 @@ export class Circle1Page {
     this.provider.setazmD(Number(this.azmD));
     this.provider.setazmM(Number(this.azmM));
     this.provider.setazmS(Number(this.azmS));
-    this.provider.setdist(Number(this.dist));
     this.provider.setn(Number(this.n));
     this.provider.sete(Number(this.e));
   }
@@ -52,11 +50,10 @@ export class Circle1Page {
     let azmD = this.provider.getazmD();
     let azmM = this.provider.getazmM();
     let azmS = this.provider.getazmS();
-    let dist = this.provider.getdist();
     let n = this.provider.getn();
     let e = this.provider.gete();
 
-    console.log(obD, obM,obS,azmD,azmM,azmS,dist,n,e);
+    console.log(obD, obM,obS,azmD,azmM,azmS,n,e);
   }
 
 

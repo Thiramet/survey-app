@@ -37,6 +37,12 @@ export class Circle2Page {
 
   }
 
+  addDist(){
+    this.provider.setdist(Number(this.dist));
+  }
+
+
+
   showData(){
     let obD = this.provider.getobD();
     let obM = this.provider.getobM();
@@ -44,6 +50,11 @@ export class Circle2Page {
     let dist = this.provider.getdist();
 
     console.log(obD, obM,obS,dist);
+  }
+
+  showDist(){
+    let dist = this.provider.getdist();
+    console.log(dist);
   }
 
 
