@@ -17,34 +17,33 @@ export class Circle11Page {
   public azmD: any;
   public azmM: any;
   public azmS: any;
-  public dist: any;
-  public n: any;
-  public e: any;
-
-//
-  public oDec=[];
-  public sumD : number;
-  public calD : number;
-  public errD : number;
-  public crrD : number;
-  public corDec =[];
+  public dist = [];
+  public n= [];
+  public e=[];
 
   //
-  public Azi =[];
-  public tod =[];
-  public sumDist:any;
+  public oDec = [];
+  public sumD: number;
+  public calD: number;
+  public errD: number;
+  public crrD: number;
+  public corDec = [];
 
-  public sinAzi =[];
-  public cosAzi =[];
-  public sumSinAzi:number;
-  public sumCosAzi:number;
+  //
+  public Azi = [];
+  public tod = [];
+  public sumDist: any;
 
-  public errE =[];
-  public errN =[];
-  public sumErrE : number;
-  public sumErrN : number;
-  public costE = [];
-  public costN = [];
+  public sinAzi = [];
+  public cosAzi = [];
+  public sumSinAzi: number;
+  public sumCosAzi: number;
+
+  public errE = [];
+  public errN = [];
+  public sumErrE: number;
+  public sumErrN: number;
+ 
 
 
 
@@ -64,115 +63,99 @@ export class Circle11Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Circle11Page');
-    //
+    console.log('ionViewDidLoad Circle11Page');    //
 
 
   }
 
- toAzi(){
+  toAzi() {
     //add Azi คำนวณมุมออกมาเป็นทศนิยม(Azi)
-    this.Azi.push(Number(this.azmD) + (Number(this.azmM)/60) + (Number(this.azmS/60/60)));
-    let k=0;
-    for(let d in this.corDec){
-      this.tod.push(Number(this.Azi[k]) + Number(this.corDec[k]));
-//
-      if(this.tod[k]>=540){
-       this.Azi.push(Number (this.tod[k]-540));
-      }else if(this.tod[k]>=180){
-        this.Azi.push(Number(this.tod[k]-180));
-      }else{
-        this.Azi.push(Number(this.tod[k]+180));
-      }
-      k++;
-    }
+    this.corDec.push(0);
+    this.Azi.push(Number(this.azmD) + (Number(this.azmM) / 60) + (Number(this.azmS / 60 / 60)));
 
-      console.log('Distance');
-      console.log(this.sumDist);
-      console.log('Azi');
-      console.log(this.Azi);
-      console.log('tod');
-      console.log(this.tod);
+    for (let d in this.corDec) {
+      this.tod.push(Number(this.Azi[d]) + Number(this.corDec[d]));
+      //console.log(this.tod);
+      //
+      if (this.tod[d] >= 540) {
+        this.Azi.push(Number(this.tod[d] - 540));
+      } else if (this.tod[d] >= 180) {
+        this.Azi.push(Number(this.tod[d] - 180));
+      } else {
+        this.Azi.push(Number(this.tod[d] + 180));
+      }
+    }
+    console.log("toAzi ok!");
   }
 
-  toDecimal(){
+  toDecimal() {
     let obD = this.obD;
     let obM = this.obM;
     let obS = this.obS;
 
 
     //add oDec คำนวณมุมออกมาเป็นทศนิยม
-    let i=0;
-    for (let x in obD){
-      this.oDec.push(obD[i]+(obM[i]/60)+(obS[i]/60/60));
+    let i = 0;
+    for (let x in obD) {
+      this.oDec.push(obD[i] + (obM[i] / 60) + (obS[i] / 60 / 60));
       i++;
     }
 
     //หาผลรวมของทศนิยม
-    this.sumD = this.oDec.reduce((a, b)=> a + b, 0);
-    this.calD=(Number(this.oDec.length)-2)*180;
-    this.errD=Number(this.sumD)-Number(this.calD);
-    this.crrD=Number(this.errD)/Number(this.oDec.length);
+    this.sumD = this.oDec.reduce((a, b) => a + b, 0);
+    this.calD = (Number(this.oDec.length) - 2) * 180;
+    this.errD = Number(this.sumD) - Number(this.calD);
+    this.crrD = Number(this.errD) / Number(this.oDec.length);
 
 
-    let j=0;
-    for (let x in this.oDec){
-      this.corDec.push(this.oDec[j]-this.crrD);
+    let j = 0;
+    for (let x in this.oDec) {
+      this.corDec.push(this.oDec[j] - this.crrD);
       j++;
     }
-
     // คำนวณ distance
-    this.sumDist = this.dist.reduce((a, b)=> a + b, 0);
+    this.sumDist = this.dist.reduce((a, b) => a + b, 0);
+
+    console.log("toDecimal ok!");
 
   }
 
-  calDistance(){
-    let m=1;
-    for (let x in this.dist){
-      this.sinAzi.push(Number(this.dist[m])* Math.sin(Number(this.Azi[m])/57.29578));
-      this.cosAzi.push(Number(this.dist[m]) * Math.cos(Number(this.Azi[m])/57.29578));
-      m++;
+  calDistance() {
+    for (let x in this.dist) {
+      this.sinAzi.push(Number(this.dist[x]) * Math.sin(Number(this.Azi[x]) / 57.29578));
+      this.cosAzi.push(Number(this.dist[x]) * Math.cos(Number(this.Azi[x]) / 57.29578));
+    }
+    //console.log(this.sinAzi);
+    this.sumSinAzi = this.sinAzi.reduce((a, b) => a + b, 0);
+    this.sumCosAzi = this.cosAzi.reduce((a, b) => a + b, 0);
+    console.log("calDistance ok!");
+  }
+
+  calError() {
+    for (let x in this.sumDist) {
+      this.errE.push(Number(this.sinAzi[x]) * (Number(this.sumSinAzi) / Number(this.sumDist)));
+      this.errN.push(Number(this.cosAzi[x]) * (Number(this.sumCosAzi) / Number(this.sumDist)));
+    }
+    this.sumErrE = this.sinAzi.reduce((a, b) => a + b, 0);
+    this.sumErrN = this.cosAzi.reduce((a, b) => a + b, 0);
+    console.log("calError ok!");
+  }
+
+  calCoordinates() {
+   
+    for (let x in this.sinAzi) {
+      this.e.push(Number(this.e[x]) + (Number(this.sinAzi[x]) + Number(this.errE[x])));
+      this.n.push(Number(this.e[x]) + (Number(this.cosAzi[x]) + Number(this.errN[x])));
+    
     }
 
-    // sum cos sin Azi
-    setTimeout(function(){
-      this.sumSinAzi = this.sinAzi.reduce((a, b)=> a + b, 0);
-      this.sumCosAzi = this.cosAzi.reduce((a, b)=> a + b, 0);
-    }, 800);
+
+    console.log(this.e);
+    console.log(this.n);
+    console.log("calCoordinates ok!");
 
   }
 
-  calError(){
-    let n=1;
-    for (let x in this.dist){
-      this.errE.push(Number(this.sinAzi[n])* (Number(this.sumSinAzi)/Number(this.sumDist)));
-      this.errN.push(Number(this.cosAzi[n]) * (Number(this.sumCosAzi)/Number(this.sumDist)));
-      n++;
-    }
 
-    setTimeout(function(){
-      this.sumErrE = this.sinAzi.reduce((a, b)=> a + b, 0);
-      this.sumErrN = this.cosAzi.reduce((a, b)=> a + b, 0);
-    }, 1000);
-  }
-
-  calCoordinates(){
-    let p=1;
-    for (let x in this.dist){
-      this.costE.push(Number(this.n) + (Number(this.sinAzi[p])+Number(this.errE[p])));
-      this.costN.push(Number(this.e) + (Number(this.cosAzi[p])+Number(this.errN[p])));
-      p++;
-    }
-
-    setTimeout(function(){
-      let costE = this.provider.getobD();
-      let costN = this.provider.getobM();
-
-      console.log(costE,costN);
-    }, 1200);
-
-  }
-
- 
 
 }
