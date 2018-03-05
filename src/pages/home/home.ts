@@ -17,7 +17,7 @@ export class HomePage {
 	setTimeout(() => {
 	   this.loadingCtrl.dismiss().then(() => {
            });
-	}, 3000);				 					       
+	}, 2000);				 					       
 	}
 
 	goCircle1(){

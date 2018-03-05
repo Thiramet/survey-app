@@ -1,8 +1,7 @@
-
 <ion-header>
 
   <ion-navbar>
-    <ion-title>circle11</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,28 +9,102 @@
 
 <ion-content padding>
 
+  <button ion-button (click)="toDecimal()">คำนวนทั้งหมด</button>
+  <br>
+  <p>{{sumD}}</p>
+  <p>{{calD}}</p>
+  <p>{{errD}}</p>
+  <p>{{crrD}}</p>
+  <p>{{Azi}}</p>
+  <p>{{tod}}</p>
 
-<p>{{sumD}}</p>
-<p>{{calD}}</p>
-<p>{{errD}}</p>
-<p>{{crrD}}</p>
-<p>{{Azi}}</p>
-<p>{{tod}}</p>
+  <br>
+  <ion-row>
+
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let i of Azi">
+        {{ i }}
+      </button>
+      </ion-list>
+    </ion-col>
 
 
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let t of tod">
+          {{ t }}
+        </button>
+      </ion-list>
+    </ion-col>
+
+  </ion-row>
 
 
+  
+  <br>
+  <ion-row>
 
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let s of sinAzi">
+        {{ s }}
+      </button>
+      </ion-list>
+    </ion-col>
 
-<button ion-button (click)="toDecimal()">toDecimal</button>
-<br>
-<button ion-button (click)="toAzi()">toAzi</button>
-<br>
-<button ion-button (click)="calDistance()">calDistance</button>
-<br>
-<button ion-button (click)="calError()">calError</button>
-<br>
-<button ion-button (click)="calCoordinates()">calCoordinates</button>
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let c of cosAzi">
+          {{ c }}
+        </button>
+      </ion-list>
+    </ion-col>
 
+  </ion-row>
+
+  
+  <br>
+  <ion-row>
+
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let ee of errE">
+        {{ ee }}
+      </button>
+      </ion-list>
+    </ion-col>
+
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let en of errN">
+          {{ en }}
+        </button>
+      </ion-list>
+    </ion-col>
+
+  </ion-row>
+
+  
+  <br>
+  <ion-row>
+
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let eutm of e">
+          {{ eutm }}
+      </button>
+      </ion-list>
+    </ion-col>
+
+    <ion-col>
+      <ion-list>
+        <button ion-item *ngFor="let nutm of n">
+        {{ nutm }}
+      </button>
+      </ion-list>
+    </ion-col>
+
+  </ion-row>
 
 </ion-content>
