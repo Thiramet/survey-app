@@ -14,22 +14,42 @@ export class LoadingProvider {
             spinner: 'hide',
             content: `
           <div class="custom-spinner-container">
-            <img class="loading" width="120px" height="120px" src="assets/imgs/kick.gif" />
+            <img class="loading" width="120px" height="120px" src="assets/imgs/giphy.gif" />
           </div>`
         });
         
         return this.loading.present();
     }
+
+    presentWithGif2() {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: `
+          <div class="custom-spinner-container">
+            <img class="loading" width="120px" height="120px" src="assets/imgs/zta.gif" />
+          </div>`
+        });
+
+        return this.loading.present();
+    }
+
+    presentWithGif3() {
+        this.loading = this.loadingCtrl.create({
+            spinner: 'hide',
+            content: `
+          <div class="custom-spinner-container">
+            <img class="loading" width="120px" height="120px" src="assets/imgs/xko.gif" />
+          </div>`
+        });
+
+        return this.loading.present();
+    }
+
+
     
       
  
-    presentWithMessage(message) {
-        this.loading = this.loadingCtrl.create({
-            content: message
-        });
- 
-        return this.loading.present();
-    }
+  
  
     dismiss() {
         return new Promise((resolve, reject) => {

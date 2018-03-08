@@ -1,96 +1,23 @@
-<ion-header>
 
-  <ion-navbar>
-    <ion-title></ion-title>
-  </ion-navbar>
 
-</ion-header>
+
 
 
 <ion-content padding>
-
-  <button ion-button (click)="toDecimal()">คำนวนทั้งหมด</button>
-  <br>
-  <p>{{sumD}}</p>
-  <p>{{calD}}</p>
-  <p>{{errD}}</p>
-  <p>{{crrD}}</p>
-  <p>{{Azi}}</p>
-  <p>{{tod}}</p>
-
-  <br>
-  <ion-row>
-
-    <ion-col>
-      <ion-list>
-        <button ion-item *ngFor="let i of Azi">
-        {{ i }}
+ 
+    <button ion-button icon-start  color = 'rgb'  (click)="go2home();"  class=go23home >
+        <ion-icon name="ios-home"></ion-icon>
       </button>
-      </ion-list>
-    </ion-col>
+  <hr>
 
-
-    <ion-col>
-      <ion-list>
-        <button ion-item *ngFor="let t of tod">
-          {{ t }}
-        </button>
-      </ion-list>
-    </ion-col>
-
-  </ion-row>
-
-
-  
   <br>
   <ion-row>
 
     <ion-col>
+        <h4>East</h4>
+   <br>
       <ion-list>
-        <button ion-item *ngFor="let s of sinAzi">
-        {{ s }}
-      </button>
-      </ion-list>
-    </ion-col>
-
-    <ion-col>
-      <ion-list>
-        <button ion-item *ngFor="let c of cosAzi">
-          {{ c }}
-        </button>
-      </ion-list>
-    </ion-col>
-
-  </ion-row>
-
-  
-  <br>
-  <ion-row>
-
-    <ion-col>
-      <ion-list>
-        <button ion-item *ngFor="let ee of errE">
-        {{ ee }}
-      </button>
-      </ion-list>
-    </ion-col>
-
-    <ion-col>
-      <ion-list>
-        <button ion-item *ngFor="let en of errN">
-          {{ en }}
-        </button>
-      </ion-list>
-    </ion-col>
-
-  </ion-row>
-
-  
-  <br>
-  <ion-row>
-
-    <ion-col>
-      <ion-list>
+          
         <button ion-item *ngFor="let eutm of e">
           {{ eutm }}
       </button>
@@ -98,7 +25,10 @@
     </ion-col>
 
     <ion-col>
+        <h4>North</h4>
+        <br>
       <ion-list>
+          
         <button ion-item *ngFor="let nutm of n">
         {{ nutm }}
       </button>
@@ -106,5 +36,7 @@
     </ion-col>
 
   </ion-row>
+
+  <button ion-button full  color='rgb' (click)="goMap(); ">MAP</button>
 
 </ion-content>

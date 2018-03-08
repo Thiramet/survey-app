@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Provider } from '../../providers/provider/provider';
+import { MapPage }from'../map/map';
+import {HomePage }from'../home/home';
+import { LoadingProvider }from '../../providers/loading/loading'
 
 
 @IonicPage()
@@ -20,6 +23,7 @@ export class Circle11Page {
   public dist = [];
   public n = [];
   public e = [];
+  
 
   //
   public oDec = [];
@@ -48,8 +52,16 @@ export class Circle11Page {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public provider: Provider
+    public provider: Provider,
+    public loadingCtrl: LoadingProvider
   ) {
+
+    this.loadingCtrl.presentWithGif2();
+    setTimeout(() => {
+      this.loadingCtrl.dismiss().then(() => {
+      });
+    }, 3000);		
+
     this.obD = this.provider.getobD();
     this.obM = this.provider.getobM();
     this.obS = this.provider.getobS();
@@ -62,7 +74,8 @@ export class Circle11Page {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Circle11Page');    //
+    console.log('ionViewDidLoad Circle11Page');
+    this.toDecimal()    //
   }
 
   toDecimal() {
@@ -122,7 +135,7 @@ export class Circle11Page {
 
     setTimeout(() => {
       this.calDistance()
-      console.log("toAzi ok!");
+
     }, 500);
 
   }
@@ -138,18 +151,20 @@ export class Circle11Page {
     this.sumSinAzi = this.sinAzi.reduce((a, b) => a + b, 0);
     this.sumCosAzi = this.cosAzi.reduce((a, b) => a + b, 0);
     console.log("calDistance ok!");
+    console.log(this.sumSinAzi);
+    console.log(this.sumCosAzi);
 
     setTimeout(() => {
       this.calError()
-      console.log("calDistance ok!");
+
     }, 500);
 
   }
 
   calError() {
     for (let x in this.dist) {
-      this.errE.push(Number(this.sinAzi[x]) * (Number(this.sumSinAzi) / Number(this.sumDist)));
-      this.errN.push(Number(this.cosAzi[x]) * (Number(this.sumCosAzi) / Number(this.sumDist)));
+      this.errE.push(Number(this.dist[x]) * (Number(this.sumSinAzi) / Number(this.sumDist)));
+      this.errN.push(Number(this.dist[x]) * (Number(this.sumCosAzi) / Number(this.sumDist)));
 
       // console.log(this.errE+"-"+this.errN);
     }
@@ -159,7 +174,7 @@ export class Circle11Page {
 
     setTimeout(() => {
       this.calCoordinates()
-      console.log("calError ok!");
+
     }, 500);
 
   }
@@ -175,6 +190,15 @@ export class Circle11Page {
     console.log("calCoordinates ok!");
 
   }
+  goMap(){
+    this.navCtrl.push ( MapPage );
+  }
+
+  go2home(){
+    this.navCtrl.push(HomePage);
+  }
+
+  
 
 
 

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Provider } from '../../providers/provider/provider';
 import { Circle11Page } from '../circle11/circle11';
 
+
 @IonicPage()
 @Component({
   selector: 'page-circle2',

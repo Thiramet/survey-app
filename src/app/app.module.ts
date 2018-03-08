@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -13,7 +14,7 @@ import { Circle11Page }from'../pages/circle11/circle11';
 import{ CompassPage }from'../pages/compass/compass';
 import{ NotesPage }from'../pages/notes/notes';
 import { MapPage }from'../pages/map/map';
-import { CalculatePage }from'../pages/calculate/calculate';
+
 
 
 
@@ -21,6 +22,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoadingProvider } from '../providers/loading/loading';
 import { Provider } from '../providers/provider/provider';
+import { ClearArreyProvider } from '../providers/clear-arrey/clear-arrey';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,11 @@ import { Provider } from '../providers/provider/provider';
     CompassPage,
     NotesPage,
     MapPage,
-    CalculatePage
-
+    
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -51,7 +53,7 @@ import { Provider } from '../providers/provider/provider';
     CompassPage,
     NotesPage,
     MapPage,
-    CalculatePage
+  
 
   ],
   providers: [
@@ -59,7 +61,8 @@ import { Provider } from '../providers/provider/provider';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoadingProvider,
-    Provider
+    Provider,
+    ClearArreyProvider
   ]
 })
 export class AppModule {}
